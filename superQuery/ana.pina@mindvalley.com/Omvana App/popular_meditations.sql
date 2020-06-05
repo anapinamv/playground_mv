@@ -1,3 +1,4 @@
+create or replace table mv-etl-staging.reports.omvana_poc as (
 with raw_data_play as (
 
 SELECT
@@ -33,4 +34,4 @@ GROUP BY
 --event_date
 data_properties_asset_name
 
-order by nr_of_times_played desc
+order by nr_of_times_played desc)
