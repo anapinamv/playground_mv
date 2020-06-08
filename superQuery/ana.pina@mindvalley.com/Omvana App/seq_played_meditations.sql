@@ -39,7 +39,7 @@ from raw_data where auth0_id is not null
 ,final_sequence_by_user as (
 select
 auth0_id
-,trim(string_agg(data_properties_asset_name order by meditations_seq)) as seq
+,trim(string_agg(data_properties_asset_name order by meditations_seq)) as sequence
 from meditations_sequence
 
 group by auth0_id)
