@@ -23,7 +23,7 @@ SELECT
 
 FROM `mindvalley-event-stream`.events.omvana_v2
 
-where (data_event="play media" or data_event="play asset"))
+where (data_event="play media" or data_event="play asset") and event_date between @event_start_date and @event_end_date )
 
 SELECT
 data_properties_asset_name
