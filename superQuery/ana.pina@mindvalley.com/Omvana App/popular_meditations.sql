@@ -1,5 +1,5 @@
-create or replace table mv-etl-staging.reports.omvana_poc as (
-with raw_data_play as (
+
+with raw_data as (
 
 SELECT
  context_app_name
@@ -23,15 +23,13 @@ SELECT
 
 FROM `mindvalley-event-stream`.events.omvana_v2
 
-where CAST(created_at AS DATE) between @event_start_date and @event_end_date and (data_event="play media" or data_event="play asset"))
+where (data_event="play media" or data_event="play asset"))
 
 SELECT
---date_trunc(created_at,month) event_date
 data_properties_asset_name
 ,count(auth0_id) as nr_of_times_played
-FROM raw_data_play
+FROM raw_data
 GROUP BY
---event_date
 data_properties_asset_name
 
-order by nr_of_times_played desc)
+order by nr_of_times_played desc
