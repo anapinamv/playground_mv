@@ -27,7 +27,7 @@ where (data_event="play media" or data_event="play asset") and created_at betwee
 
 SELECT
 data_properties_asset_name as meditation
-,count(auth0_id) as nr_of_times_played
+,count(auth0_id) as total_nr_of_assets_and_media_played
 FROM raw_data
 GROUP BY
 data_properties_asset_name
