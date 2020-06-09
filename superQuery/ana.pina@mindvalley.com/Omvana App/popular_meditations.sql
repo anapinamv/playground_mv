@@ -26,7 +26,7 @@ FROM `mindvalley-event-stream`.events.omvana_v2
 where (data_event="play media" or data_event="play asset") and created_at between @event_start_date and @event_end_date )
 
 SELECT
-data_properties_asset_name
+data_properties_asset_name as meditation
 ,count(auth0_id) as nr_of_times_played
 FROM raw_data
 GROUP BY
