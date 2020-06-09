@@ -32,4 +32,6 @@ FROM raw_data
 GROUP BY
 data_properties_asset_name
 
-order by nr_of_times_played desc
+order by total_nr_of_assets_and_media_played desc
+
+limit 5
